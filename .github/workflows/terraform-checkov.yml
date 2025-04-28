@@ -6,7 +6,7 @@ on:
       - 'terraform/**'
       - '**/*.tf'
     branches:
-      - master
+      - main
 jobs:
   build:
 
