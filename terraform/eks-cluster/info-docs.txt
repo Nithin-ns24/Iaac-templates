@@ -1,0 +1,9 @@
+#########################################
+
+1 = create a user with admin access or EC2 EKS full access and generate the access keys for the user
+2 = go to search engine and search with "eks cluster resource terraform" and go to website
+    and also search for provider.tf terraform aws and take from the document
+3 = from the document take the scrip of iam role for aws eks and add it in main.tf
+4 = first we have to create a role before creating the cluster
+5 = aws iam policies will be in json format
+6 = can take policy arn from aws console as well
