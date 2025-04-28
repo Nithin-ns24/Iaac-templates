@@ -38,11 +38,17 @@ data "aws_subnets" "public"{
 resource "aws_eks_cluster" "example" {
   name     = "EKS_Cloud"
   role_arn = aws_iam_role.eks-test.arn
-
+  encryption_config {
+    resources = ["secrets"]
+    provider {
+      key_arn = aws_kms_key.example.arn
+       }
+  }
   vpc_config {
     subnet_ids = data.aws_subnets.public.ids
+    endpoint_public_access = false
   }
-
+  enabled_cluster_log_types = ["api", "audit", "authenticator","controllerManager","scheduler"]
   # Ensure that IAM Role permissions are created before and deleted after EKS Cluster handling.
   # Otherwise, EKS will not be able to properly delete EKS managed EC2 infrastructure such as Security Groups.
   depends_on = [
