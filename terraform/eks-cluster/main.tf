@@ -46,7 +46,7 @@ resource "aws_eks_cluster" "example" {
   }
   vpc_config {
     subnet_ids = data.aws_subnets.public.ids
-    endpoint_public_access = false
+    endpoint_public_access = true
   }
   enabled_cluster_log_types = ["api", "audit", "authenticator","controllerManager","scheduler"]
   # Ensure that IAM Role permissions are created before and deleted after EKS Cluster handling.
