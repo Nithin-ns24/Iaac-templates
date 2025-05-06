@@ -1,5 +1,5 @@
----
 name: Checkov
+
 on:
   pull_request:
     paths:
@@ -8,19 +8,24 @@ on:
       - '**/*.yml'
     branches:
       - main
-jobs:
-  build:
 
+concurrency:
+  group: checkov-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  checkov-scan:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
       - name: Set up Python 3.8
         uses: actions/setup-python@v4
         with:
           python-version: 3.8
-      - name: Test with Checkov
-        id: checkov
+
+      - name: Run Checkov Scan
         uses: bridgecrewio/checkov-action@master
         with:
           directory: k8s-manifests/mysql
-          framework: kubernetes 
+          framework: kubernetes
