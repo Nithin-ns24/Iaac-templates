@@ -2,16 +2,9 @@
 name: Checkov
 on:
   pull_request:
-    paths:
-      - 'terraform/**'
-      - '**/*.tf'
     branches:
       - main
       
-concurrency:
-  group: checkov-${{ github.head_ref || github.run_id }}
-  cancel-in-progress: true
-  
 jobs:
   build:
 
