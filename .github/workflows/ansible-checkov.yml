@@ -1,17 +1,7 @@
 ---
 name: Checkov
 on:
-  pull_request:
-    paths:
-      - 'ansible/**'
-      - '**/*.yml'
-      - '**/*.yaml'
-    branches:
-      - main
-
-concurrency:
-  group: checkov-${{ github.head_ref || github.run_id }}
-  cancel-in-progress: true
+  workflow_dispatch:
   
 jobs:
   build:
