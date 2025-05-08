@@ -18,8 +18,8 @@ jobs:
         policy_type: 'aws'
         only_warn: true
         sarif_upload: true
+        iac_dir: terraform/eks-cluster
         #non_recursive:
-        #iac_dir:
         #policy_path:
         #skip_rules:
         #config_path:
