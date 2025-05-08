@@ -1,5 +1,5 @@
 ---
-name: Checkov
+name: ansible Checkov Scan
 on:
   workflow_dispatch:
   
