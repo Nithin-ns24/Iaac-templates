@@ -1,4 +1,4 @@
-name: Checkov
+name: k8smanifest Checkov Scan
 
 on:
   workflow_dispatch:
