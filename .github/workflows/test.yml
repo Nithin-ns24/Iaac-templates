@@ -1,5 +1,5 @@
 ---
-name: Terraform Checkov Scan
+name: test for terrascan
 on:
   workflow_dispatch:
       
